@@ -8,11 +8,11 @@ export default function App() {
 
   const [user, setUser] = useState({
     username: sessionStorage.getItem("username"),
-    isManager: Boolean(sessionStorage.getItem("isManager"))
-  })
+    isManager: sessionStorage.getItem("isManager") === "false" ? false : true
+  });
 
   console.log(sessionStorage.getItem("isManager"));
-  console.log(sessionStorage.getItem("username"))
+  console.log(sessionStorage.getItem("username"));
 
   return (<>{
     !user.username ? <LoginPage updateUser = {setUser}/>:
