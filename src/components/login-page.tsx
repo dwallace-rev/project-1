@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useRef } from "react"
 import { Employee } from "../dtos/dtos";
 
@@ -13,10 +14,23 @@ export default function LoginPage(props:{updateUser:Function}){
             password: passwordInput.current.value
         }
 
-        const employee: Employee = {id: "", username: "JoeyS", fname: "Joe", lname:"Shmo", isManager:false, requests:[]}
-        sessionStorage.setItem("username", loginPayload.username)
-        sessionStorage.setItem("isManager", `${employee.isManager}`)
-        props.updateUser({username:employee.username, isManager:Boolean(employee.isManager)})
+        const employees: Employee[] = (await axios.get("http://localhost:5000/employees")).data;
+        const employee: Employee = employees.find(e=> e.username === loginPayload.username);
+
+        if (employee){
+            if (employee.password === loginPayload.password){
+                sessionStorage.setItem("username", employee.username)
+                sessionStorage.setItem("isManager", `${employee.isManager}`)
+                sessionStorage.setItem("employeeData", JSON.stringify(employee));
+                props.updateUser({username:employee.username, isManager:Boolean(employee.isManager)})
+            }
+            else{
+                alert("Incorrect password")
+            }
+        }
+        else{
+            alert("Username not found.");
+        }
     }
 
     

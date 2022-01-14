@@ -3,16 +3,19 @@
 export interface Employee{
     id: string
     username: string
+    password: string
     fname: string
     lname: string
-    requests: string[]
+    expenses: string[]
     isManager: boolean
 }
 
-export interface Request{
+export interface Expense{
     id: string
     reason: string
     amount: number // store as a whole number of cents.
+    requestedBy: string //employee ID
     requestDate: number // unix epoch time
-    isApproved: boolean
+    approved: boolean
+    comments?: string[]
 }
