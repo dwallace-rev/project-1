@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(240, 240, 240);
+}
+
+button{
+    margin: 5px;
+}
+.expenseHeader{
+    column-width: 150px;
+    min-width: 150px;
+}
+th{
+    padding: 5px;
+}
+.dateField{
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.amountField{
+    color:green;
+    font-weight: bold;
+}
+.reasonField{
+    text-align: center;
+}

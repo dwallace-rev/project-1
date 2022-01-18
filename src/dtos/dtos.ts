@@ -17,5 +17,6 @@ export interface Expense{
     requestedBy: string //employee ID
     requestDate: number // unix epoch time
     approved: boolean
+    pending: boolean
     comments?: string[]
 }

@@ -1,4 +1,5 @@
 import { Employee } from "../dtos/dtos";
+import ExpenseTable from "./expense-table";
 
 
 export default function EmployeeHome(){
@@ -9,6 +10,7 @@ export default function EmployeeHome(){
 
     return(<>
         <h2>Employee Home Page</h2>
-        <h4>Welcome, {fname} {lname}</h4>
+        <h3>Welcome, {fname} {lname}</h3>
+        <ExpenseTable/>
     </>)
 }

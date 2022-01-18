@@ -1,36 +1,43 @@
 import axios from "axios";
 import { useRef } from "react"
+import { useNavigate } from "react-router-dom";
 import { Employee } from "../dtos/dtos";
 
 
 export default function LoginPage(props:{updateUser:Function}){
 
+    const navigate = useNavigate();
     const usernameInput = useRef(null);
     const passwordInput = useRef(null);
 
     async function login(){
+        
         const loginPayload = {
             username: usernameInput.current.value,
             password: passwordInput.current.value
         }
 
-        const employees: Employee[] = (await axios.get("http://localhost:5000/employees")).data;
-        const employee: Employee = employees.find(e=> e.username === loginPayload.username);
+        let valid = true; // Wasn't sure of a better way to account for whether a login succeeds or not.
+        
+        const employee: Employee = await axios.patch(`http://localhost:5000/employees/login`, loginPayload).then(response=>{
+            return response.data;
+        }).catch(function(error){
+            console.log(error.response);
+            valid = false;
+        })
 
-        if (employee){
-            if (employee.password === loginPayload.password){
-                sessionStorage.setItem("username", employee.username)
-                sessionStorage.setItem("isManager", `${employee.isManager}`)
-                sessionStorage.setItem("employeeData", JSON.stringify(employee));
-                props.updateUser({username:employee.username, isManager:Boolean(employee.isManager)})
-            }
-            else{
-                alert("Incorrect password")
-            }
+        if (valid){            
+            sessionStorage.setItem("username", employee.username);
+            sessionStorage.setItem("isManager", `${employee.isManager}`);
+            sessionStorage.setItem("employeeData", JSON.stringify(employee));
+            props.updateUser({username:employee.username, isManager:Boolean(employee.isManager)});
         }
         else{
-            alert("Username not found.");
+            alert("Invalid username/password");
+            passwordInput.current.value = "";
         }
+        
+        navigate("/")
     }
 
     
