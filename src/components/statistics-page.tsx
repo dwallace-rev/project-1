@@ -3,7 +3,7 @@
 export default function StatisticsPage(){
 
 
-    return(<>
-    <h4>Statistics</h4><hr/>
+    return(<><hr/>
+    <h4>Statistics</h4>
     </>)
 }
