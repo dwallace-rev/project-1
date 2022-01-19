@@ -29,6 +29,7 @@ export default function LoginPage(props:{updateUser:Function}){
         if (valid){            
             sessionStorage.setItem("username", employee.username);
             sessionStorage.setItem("isManager", `${employee.isManager}`);
+            employee.password = "";
             sessionStorage.setItem("employeeData", JSON.stringify(employee));
             props.updateUser({username:employee.username, isManager:Boolean(employee.isManager)});
         }

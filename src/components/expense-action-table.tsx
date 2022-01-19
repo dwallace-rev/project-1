@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Expense } from "../dtos/dtos";
-import ExpenseActionRow from "../expense-action-row";
+import ExpenseActionRow from "./expense-action-row";
 
 
 
 export default function ExpenseActionTable(){
 
     const [expenses, setExpenses] = useState([]);
-    const tableRows = expenses.map(e => <ExpenseActionRow key={e.id} {...e}/>)
+    const tableRows = expenses.map(e => <ExpenseActionRow key={e.id} expense={e} refresh={getExpenses}/>)
 
 
     async function getExpenses(){
@@ -31,6 +31,7 @@ export default function ExpenseActionTable(){
                 <th>Requested By</th>
                 <th className="expenseHeader">Reason</th>
                 <th>Approved?</th>
+                <th>Action</th>
                 <th>Comment</th>
             </tr>
         </thead>

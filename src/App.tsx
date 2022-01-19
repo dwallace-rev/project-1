@@ -4,8 +4,8 @@ import EmployeeHome from "./components/employee-home";
 import LoginPage from "./components/login-page";
 import ManagerHome from "./components/manager-home";
 import { Employee } from "./dtos/dtos";
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import CreateExpensePage from "./components/create-expense-page";
 
 
 export default function App() {
@@ -29,7 +29,10 @@ const debugUser: Employee = {id: "101", fname:"debug", lname:"user", username:"d
     sessionStorage.setItem("isManager", "false")    
     sessionStorage.setItem("employeeData", JSON.stringify(debugUser))
   }
-  function clearStorage() { setUser({ username: "", isManager: false }); sessionStorage.clear() }
+  function clearStorage() { 
+    setUser({ username: "", isManager: false }); sessionStorage.clear()
+    window.location.assign("http://localhost:3000")
+  }
   //******************************************
 
 
@@ -42,6 +45,7 @@ const debugUser: Employee = {id: "101", fname:"debug", lname:"user", username:"d
 
     <Routes>
       <Route path="/*" element={user.username ? user.isManager ? <ManagerHome/> : <EmployeeHome/>: <LoginPage updateUser={setUser}/>}/>
+      {/* <Route path="/create" element={<CreateExpensePage />}/> */}
     </Routes>
 
     

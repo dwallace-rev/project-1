@@ -23,4 +23,13 @@ th{
 }
 .reasonField{
     text-align: center;
+    padding-right: 5px;
+}
+
+#newExpenseTextInput{
+    width: 300px;
+}
+
+#newExpenseAmountInput{
+    width: 80px;
 }
