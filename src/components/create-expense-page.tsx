@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Employee, Expense } from "../dtos/dtos"
@@ -12,7 +13,15 @@ export default function CreateExpensePage(){
     const newExpense: Expense = {id:"", reason:"", amount:-1, requestedBy:employee.id, requestDate:0, approved:false, pending:true};
 
     async function makeExpenseRequest(){
-        
+
+        newExpense.reason = reasonInput.current.value;
+        newExpense.amount = (amountInput.current.value * 100); //multiply by 100 because it's stored in cents
+        newExpense.requestDate = Date.now();
+
+        const result = axios.post("http://localhost:5000/expenses", newExpense)
+        console.log(newExpense)
+        alert("Reimbursement request successfully created");
+        navigate("/expenses")
     }
 
 

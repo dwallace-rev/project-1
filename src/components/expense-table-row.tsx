@@ -11,7 +11,7 @@ export default function ExpenseTableRow(props){
         <td className="dateField">{new Date(requestDate).toLocaleDateString()}</td>
         <td className="amountField">{`$${(amount/100).toFixed(2)}`}</td>
         <td className="reasonField">{reason}</td>
-        <td>{approved ? "ACCEPTED": pending ? "PENDING" : "REJECTED"}</td>
+        {approved ? <td style={{color:"Green"}}>ACCEPTED</td>: pending ? <td>PENDING</td> : <td style={{color:"red"}}>REJECTED</td>}
         <td>{comments}</td>
     </tr>)
 }

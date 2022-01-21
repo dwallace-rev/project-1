@@ -37,6 +37,8 @@ const debugUser: Employee = {id: "101", fname:"debug", lname:"user", username:"d
 
 
   return (<>
+    <div id='wrapper'>
+    
     Debug buttons  :
     <button onClick={setEmployee}>Role: Employee</button>
     <button onClick={setManager}>Role: Manager</button>
@@ -48,7 +50,7 @@ const debugUser: Employee = {id: "101", fname:"debug", lname:"user", username:"d
       {/* <Route path="/create" element={<CreateExpensePage />}/> */}
     </Routes>
 
-    
+    </div>
       
 
 

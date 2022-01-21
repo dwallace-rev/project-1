@@ -34,7 +34,5 @@ export default function ManagerHome(){
             <Route path={"actions"} element={<ExpenseActionPage />} />
             <Route path={"statistics"} element={<StatisticsPage/>}/>
         </Routes>
-
-        <Outlet/>
     </>)
 }

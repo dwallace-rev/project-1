@@ -19,7 +19,6 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     const requestUser =(async () =>{
         const username = (await (await axios.get(`http://localhost:5000/employees/username/${requestedBy}`)).data)
         setUsername(username);
-        console.log("requestUser called")  
     })
 
     useEffect(()=>{requestUser()},[])
