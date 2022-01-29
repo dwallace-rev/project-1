@@ -47,7 +47,6 @@ const debugUser: Employee = {id: "101", fname:"debug", lname:"user", username:"d
 
     <Routes>
       <Route path="/*" element={user.username ? user.isManager ? <ManagerHome/> : <EmployeeHome/>: <LoginPage updateUser={setUser}/>}/>
-      {/* <Route path="/create" element={<CreateExpensePage />}/> */}
     </Routes>
 
     </div>

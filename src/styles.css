@@ -5,6 +5,9 @@ body{
 button{
     margin: 5px;
 }
+.actionButton{
+    width: 300px;
+}
 .expenseHeader{
     column-width: 150px;
     min-width: 150px;
@@ -37,4 +40,16 @@ th{
 #wrapper{
     max-width: 960px;
     margin: auto;
+    padding: 20px;
+}
+
+#stat-table{
+    width: 900px;
+}
+.stat-label{
+    max-width: 150px;
+}
+.stat-data{
+    text-align: left;
+    max-width: 50px;
 }

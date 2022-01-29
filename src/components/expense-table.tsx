@@ -5,7 +5,10 @@ import ExpenseTableRow from "./expense-table-row";
 
 
 
-export default function ExpenseTable(){
+export default function ExpenseTable(props){
+
+
+    const viewAll = props.viewAll;
     
     const employeeData: Employee = JSON.parse(sessionStorage.getItem("employeeData"))
     const empId = employeeData.id;
@@ -14,9 +17,20 @@ export default function ExpenseTable(){
     const tableRows = expenses.map(e => <ExpenseTableRow key={e.id} {...e}/>)
 
     async function getExpenses(){
-        const expenses = await (await axios.get(`http://localhost:5000/employeeExpenses/${empId}`)).data
+
+        let expenses = [];
+
+        if (viewAll){
+            expenses = JSON.parse(sessionStorage.getItem("expenses"))
+        }
+        else{
+            expenses = await (await axios.get(`http://localhost:5000/employeeExpenses/${empId}`)).data
+        }
+        
         setExpenses(expenses);
     }
+
+    
 
     useEffect(()=>{
         getExpenses();
@@ -26,7 +40,7 @@ export default function ExpenseTable(){
 
 
     return(<><hr/>
-    <h4>Your Expense Requests:</h4>
+    <h4>Expense Requests:</h4>
     <table>
         <thead>
             <tr>

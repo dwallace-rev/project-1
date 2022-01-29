@@ -17,7 +17,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     const expense:Expense = {id, reason, requestDate, requestedBy, approved, amount, pending, comments}
     
     const requestUser =(async () =>{
-        const username = (await (await axios.get(`http://localhost:5000/employees/username/${requestedBy}`)).data)
+        const username = await (await axios.get(`http://localhost:5000/employees/username/${requestedBy}`)).data
         setUsername(username);
     })
 
