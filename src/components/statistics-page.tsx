@@ -1,5 +1,4 @@
 import axios from "axios";
-import { maxHeaderSize } from "http";
 import { useEffect, useState } from "react"
 import { Employee, Expense } from "../dtos/dtos";
 
@@ -18,7 +17,6 @@ export default function StatisticsPage(){
     const [employees, setEmployees] = useState([]);
     const [highestRequested, setHighestRequested] = useState(emptyEmp);
     const [lowestRequested, setLowestRequested] = useState(emptyEmp);
-    const [expenseStats, setExpenseStats ] = useState({maxTotal: 0, minTotal: 0});
     const [uniqueEmployees, setUniqueEmployees] = useState([]);
     const [completionData, setCompletionData] = useState({completed: 0, pending: 0})
 
@@ -60,8 +58,7 @@ export default function StatisticsPage(){
         const max = balancePerUser.reduce(function(prev, current) {
             return (prev.amount > current.amount) ? prev : current
         })
-
-        setExpenseStats({maxTotal: max, minTotal:min})        
+  
         setHighestRequested(employees.find(e=> max.id === e.id));
         setLowestRequested(employees.find(e=> min.id === e.id));
 
@@ -91,24 +88,28 @@ export default function StatisticsPage(){
             <tr>
                 <td className="stat-label">Expense Count:</td>
                 <td className="stat-data">{expenses.length}</td>
-                <td className="stat-label">Number of Employees With Expense Requests: </td>
-                <td className="stat-data">{uniqueEmployees.length}</td>
+                <td className="stat-label">Total Number of Emploeyes in Database</td>
+                <td className="stat-data">{employees.length}</td>
             </tr>
             <tr>
                 <td className="stat-label">Expense Total: </td>
                 <td className="stat-data">${(totalCost/100).toLocaleString()}</td>
-                <td className="stat-label">Employee with Highest Total Request Amount: </td>
-                <td className="stat-data">{highestRequested.fname} {highestRequested.lname} </td>
+                <td className="stat-label">Number of Employees With Expense Requests: </td>
+                <td className="stat-data">{uniqueEmployees.length}</td>
             </tr>
             <tr>
                 <td className="stat-label">Mean Expense Request Amount:</td>
                 <td className="stat-data">${((totalCost/expenses.length)/100).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-                <td className="stat-label">Employee with Lowest Total Request Amount: </td>
-                <td className="stat-data">{lowestRequested.fname} {lowestRequested.lname}</td>
+                <td className="stat-label">Employee with Highest Total Request Amount: </td>
+                <td className="stat-data">{highestRequested.fname} {highestRequested.lname}</td>
             </tr>
             <tr>
                 <td className="stat-label">Completed Requests:</td>
                 <td className="stat-data">{completionData.completed}</td>
+                <td className="stat-label">Employee with Lowest Total Request Amount: </td>
+                <td className="stat-data">{lowestRequested.fname} {lowestRequested.lname}</td>
+            </tr>
+            <tr>
                 <td className="stat-label">Pending Requests:</td>
                 <td className="stat-data">{completionData.pending}</td>
             </tr>

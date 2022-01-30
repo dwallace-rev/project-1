@@ -7,7 +7,7 @@ import ExpenseTable from "./expense-table";
 export default function EmployeeHome(){
 
     const employee: Employee = JSON.parse(sessionStorage.getItem("employeeData"));
-    const {id, fname, lname, expenses} = employee;
+    const {fname, lname} = employee;
 
     const navigate = useNavigate()
 

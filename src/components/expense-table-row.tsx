@@ -1,10 +1,9 @@
-import { request } from "http"
 
 
 
 export default function ExpenseTableRow(props){
 
-    const {id, reason, requestedBy, requestDate, approved, amount, pending, comments} = props
+    const {reason, requestDate, approved, amount, pending, comments} = props
 
 
     return(<tr>

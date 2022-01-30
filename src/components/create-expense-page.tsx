@@ -19,8 +19,7 @@ export default function CreateExpensePage(){
         newExpense.requestDate = Date.now();
 
         const result = axios.post("http://localhost:5000/expenses", newExpense)
-        console.log(newExpense)
-        alert("Reimbursement request successfully created");
+        alert("Reimbursement request successfully created: " + (await result).statusText);
         navigate("/expenses")
     }
 

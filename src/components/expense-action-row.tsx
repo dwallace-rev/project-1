@@ -1,13 +1,12 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Employee, Expense } from "../dtos/dtos";
+import { Expense } from "../dtos/dtos";
 
 
 
 export default function ExpenseActionRow(props:{expense:Expense, refresh:Function}){
 
-    const navigate = useNavigate();
+    
     const refresh = props.refresh;
 
     const commentInput = useRef(null);
@@ -16,7 +15,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     const [username, setUsername] = useState();
     const expense:Expense = {id, reason, requestDate, requestedBy, approved, amount, pending, comments}
     
-    const requestUser =(async () =>{
+    const requestUser = (async () =>{
         const username = await (await axios.get(`http://localhost:5000/employees/username/${requestedBy}`)).data
         setUsername(username);
     })
@@ -39,7 +38,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
         }
 
         const result = (await axios.put(`http://localhost:5000/expenses/${id}`, expense)).data
-        console.log(expense);
+        console.log(`${await result}}`);
         refresh();
 
     }
