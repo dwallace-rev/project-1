@@ -34,7 +34,7 @@ export default function ExpenseTable(props) {
 
     useEffect(() => {
         getExpenses();
-    }, [])
+    }, )
 
 
 

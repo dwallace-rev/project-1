@@ -20,7 +20,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
         setUsername(username);
     })
 
-    useEffect(()=>{requestUser()},[])
+    useEffect(()=>{requestUser()},)
 
     async function approvalAction(approved:boolean){
 
