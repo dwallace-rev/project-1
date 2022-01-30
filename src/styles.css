@@ -1,5 +1,6 @@
 body{
     background-color: rgb(240, 240, 240);
+    
 }
 
 button{
@@ -11,6 +12,7 @@ button{
 
 #login-div{
     text-align: center;
+    padding-top: 180px;
 }
 #title{
     text-align: center;
@@ -45,10 +47,25 @@ th{
     width: 80px;
 }
 
+
+
+#bg-img{
+    z-index: -100;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    width: 960px;
+    height: 600px;
+    background-image: url("../public/planex-logo.png");
+}
 #wrapper{
+    float: center;
+    display: block;
     max-width: 960px;
     margin: auto;
     padding: 20px;
+    padding-top: 5px;
 }
 
 #stat-table{

@@ -12,7 +12,7 @@ export default function ExpenseActionTable(){
 
 
     async function getExpenses(){
-        const expenses: Expense[] = await (await axios.get("http://localhost:5000/expenses")).data
+        const expenses: Expense[] = await (await axios.get("http://9c09-184-90-227-213.ngrok.io/expenses")).data
         const pending = expenses.filter(e=> e.pending === true )
         setExpenses(pending);
     }

@@ -16,7 +16,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     const expense:Expense = {id, reason, requestDate, requestedBy, approved, amount, pending, comments}
     
     const requestUser = (async () =>{
-        const username = await (await axios.get(`http://localhost:5000/employees/username/${requestedBy}`)).data
+        const username = await (await axios.get(`http://9c09-184-90-227-213.ngrok.io/employees/username/${requestedBy}`)).data
         setUsername(username);
     })
 
@@ -37,7 +37,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
             expense.comments =[commentInput.current.value];
         }
 
-        const result = (await axios.put(`http://localhost:5000/expenses/${id}`, expense)).data
+        const result = (await axios.put(`http://9c09-184-90-227-213.ngrok.io/expenses/${id}`, expense)).data
         console.log(`${await result}}`);
         refresh();
 

@@ -35,6 +35,9 @@ export default function App() {
 
   return (<>
     <div id='wrapper'>
+      <div id="bg-img">
+        
+      </div>
     
     {/* Debug buttons  :
     <button onClick={setEmployee}>Role: Employee</button>
