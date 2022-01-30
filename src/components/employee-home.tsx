@@ -13,7 +13,7 @@ export default function EmployeeHome(){
 
     function logOut() { 
         sessionStorage.clear()
-        window.location.assign("http://localhost:3000")
+        window.location.assign("https://mango-desert-0f5d5970f.1.azurestaticapps.net/")
     }
 
 
