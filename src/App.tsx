@@ -39,11 +39,12 @@ const debugUser: Employee = {id: "101", fname:"debug", lname:"user", username:"d
   return (<>
     <div id='wrapper'>
     
-    Debug buttons  :
+    {/* Debug buttons  :
     <button onClick={setEmployee}>Role: Employee</button>
     <button onClick={setManager}>Role: Manager</button>
     <button onClick={clearStorage}>Clear session storage</button>
-    <hr/>
+    <hr/> */}
+    <h1 id="title" >Planet Express Expense Reimbursement System</h1>
 
     <Routes>
       <Route path="/*" element={user.username ? user.isManager ? <ManagerHome/> : <EmployeeHome/>: <LoginPage updateUser={setUser}/>}/>

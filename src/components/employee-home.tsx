@@ -11,8 +11,16 @@ export default function EmployeeHome(){
 
     const navigate = useNavigate()
 
+    function logOut() { 
+        sessionStorage.clear()
+        window.location.assign("http://localhost:3000")
+    }
+
 
     return(<>
+    
+        <button onClick={logOut}>Log Out</button>
+        <hr/>
         <h2>Employee Home Page</h2>
         <h4>Welcome, {fname} {lname}</h4>
         <hr/>

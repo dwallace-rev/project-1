@@ -8,6 +8,14 @@ button{
 .actionButton{
     width: 300px;
 }
+
+#login-div{
+    text-align: center;
+}
+#title{
+    text-align: center;
+}
+
 .expenseHeader{
     column-width: 150px;
     min-width: 150px;

@@ -43,11 +43,13 @@ export default function LoginPage(props:{updateUser:Function}){
 
     
     return(<>
-        <h1>Log-in page</h1>
+    <div id="login-div">
+        
         <input id="usernameInput" type={"text"} ref={usernameInput}/>
         <label htmlFor="usernameInput"> Username </label>
         <br/><input id="passwordInput" type={"password"} ref={passwordInput}/>
         <label htmlFor="passwordInput"> Password</label>
         <br/><button onClick={login}>Log In</button>
+    </div>
     </>)
 }

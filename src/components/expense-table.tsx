@@ -21,7 +21,7 @@ export default function ExpenseTable(props){
         let expenses = [];
 
         if (viewAll){
-            expenses = JSON.parse(sessionStorage.getItem("expenses"))
+            expenses = await axios.get(`http://localhost:5000/expenses`).then(response => {return response.data});
         }
         else{
             expenses = await (await axios.get(`http://localhost:5000/employeeExpenses/${empId}`)).data
