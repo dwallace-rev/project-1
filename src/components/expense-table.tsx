@@ -21,10 +21,10 @@ export default function ExpenseTable(props) {
         let expenses = [];
 
         if (viewAll) {
-            expenses = await axios.get(`http://9c09-184-90-227-213.ngrok.io/expenses`).then(response => { return response.data });
+            expenses = await axios.get(`https://9c09-184-90-227-213.ngrok.io/expenses`).then(response => { return response.data });
         }
         else {
-            expenses = await (await axios.get(`http://9c09-184-90-227-213.ngrok.io/employeeExpenses/${empId}`)).data
+            expenses = await (await axios.get(`https://9c09-184-90-227-213.ngrok.io/employeeExpenses/${empId}`)).data
         }
 
         setExpenses(expenses);

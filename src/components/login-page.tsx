@@ -19,7 +19,7 @@ export default function LoginPage(props:{updateUser:Function}){
 
         let valid = true; // Wasn't sure of a better way to account for whether a login succeeds or not.
         
-        const employee: Employee = await axios.patch(`http://9c09-184-90-227-213.ngrok.io/employees/login`, loginPayload).then(response=>{
+        const employee: Employee = await axios.patch(`https://9c09-184-90-227-213.ngrok.io/employees/login`, loginPayload).then(response=>{
             return response.data;
         }).catch(function(error){
             console.log(error.response);
