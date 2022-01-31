@@ -81,6 +81,7 @@ th{
 
 #stat-table{
     width: 900px;
+    font-weight: bold;
 }
 .stat-label{
     max-width: 150px;
