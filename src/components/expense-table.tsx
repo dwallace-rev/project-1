@@ -16,23 +16,21 @@ export default function ExpenseTable(props) {
     const [expenses, setExpenses] = useState([]);
     const tableRows = expenses.map(e => <ExpenseTableRow key={e.id} {...e} />)
 
-    async function getExpenses() {
-
-        let expenses = [];
-
-        if (viewAll) {
-            expenses = await axios.get(`https://9c09-184-90-227-213.ngrok.io/expenses`).then(response => { return response.data });
-        }
-        else {
-            expenses = await (await axios.get(`https://9c09-184-90-227-213.ngrok.io/employeeExpenses/${empId}`)).data
-        }
-
-        setExpenses(expenses);
-    }
-
-
-
     useEffect(() => {
+        async function getExpenses() {
+
+            let expenses = [];
+    
+            if (viewAll) {
+                expenses = await axios.get(`https://9c09-184-90-227-213.ngrok.io/expenses`).then(response => { return response.data });
+            }
+            else {
+                expenses = await (await axios.get(`https://9c09-184-90-227-213.ngrok.io/employeeExpenses/${empId}`)).data
+            }
+    
+            setExpenses(expenses);
+        }
+
         getExpenses();
     }, [])
 

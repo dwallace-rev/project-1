@@ -44,7 +44,7 @@ export default function ManagerHome() {
 
 
     return (<>
-        <button onClick={logOut}>Log Out</button>
+        <button className="logout-btn" onClick={logOut}>Log Out</button>
         <hr />
 
 

@@ -16,12 +16,13 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     const expense:Expense = {id, reason, requestDate, requestedBy, approved, amount, pending, comments}
     const employees: Employee[] = JSON.parse(sessionStorage.getItem("employees"))
     
-    const requestUser = (async () =>{
+
+    useEffect(()=>{
+        const requestUser = (async () =>{
         const username = employees.find(e=> e.id === requestedBy).username;
         setUsername(username);
     })
 
-    useEffect(()=>{
         requestUser()
     },[])
 
@@ -53,7 +54,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
         <td>{username}</td>
         <td className="reasonField">{reason}</td>
         <td>{approved ? "ACCEPTED": pending ? "PENDING" : "REJECTED"}</td>
-        <td>
+        <td className="action-buttons-td">
             <button onClick={()=>approvalAction(true)}>Accept</button><button onClick={()=>approvalAction(false)}>Reject</button>
         </td>
         <td><input id="commentInput" ref={commentInput}/></td>

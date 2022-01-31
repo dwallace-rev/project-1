@@ -19,7 +19,7 @@ export default function EmployeeHome(){
 
     return(<>
     
-        <button onClick={logOut}>Log Out</button>
+        <button className="logout-btn" onClick={logOut}>Log Out</button>
         <hr/>
         <h2>Employee Home Page</h2>
         <h4>Welcome, {fname} {lname}</h4>

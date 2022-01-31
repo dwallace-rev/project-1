@@ -1,13 +1,20 @@
 body{
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(200, 215, 235);
     
 }
 
 button{
-    margin: 5px;
+    margin: 5px;    
+    background-color: rgb(210, 230, 250);
+    color: darkred;
 }
 .actionButton{
     width: 300px;
+}
+.logout-btn{
+    background-color: rgb(210, 230, 250);
+    color: darkred;
+    font-weight: 700;
 }
 
 #login-div{
@@ -37,6 +44,10 @@ th{
 .reasonField{
     text-align: center;
     padding-right: 5px;
+}
+
+.action-buttons-td{
+    min-width: 135px;
 }
 
 #newExpenseTextInput{
