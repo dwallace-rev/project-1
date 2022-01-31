@@ -9,7 +9,6 @@ export default function ExpenseTable(props) {
 
 
     const viewAll = props.viewAll;
-    let cheating = "";
 
     const employeeData: Employee = JSON.parse(sessionStorage.getItem("employeeData"))
     const empId = employeeData.id;
