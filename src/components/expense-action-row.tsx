@@ -6,7 +6,6 @@ import { Employee, Expense } from "../dtos/dtos";
 
 export default function ExpenseActionRow(props:{expense:Expense, refresh:Function}){
 
-    let cheating = '';
     const refresh = props.refresh;
 
     const commentInput = useRef(null);
@@ -24,7 +23,8 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     })
         console.log("RequestUser run.")
         requestUser()
-    },[cheating])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     async function approvalAction(approved:boolean){
 

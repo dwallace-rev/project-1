@@ -33,9 +33,8 @@ export default function ExpenseTable(props) {
         }
 
         getExpenses();
-
-        console.log("getExpenses run")
-    },[cheating])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
 
 
