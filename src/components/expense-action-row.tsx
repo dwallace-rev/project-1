@@ -6,7 +6,7 @@ import { Employee, Expense } from "../dtos/dtos";
 
 export default function ExpenseActionRow(props:{expense:Expense, refresh:Function}){
 
-    
+    let cheating = '';
     const refresh = props.refresh;
 
     const commentInput = useRef(null);
@@ -22,9 +22,9 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
         const username = employees.find(e=> e.id === requestedBy).username;
         setUsername(username);
     })
-
+        console.log("RequestUser run.")
         requestUser()
-    },[])
+    },[cheating])
 
     async function approvalAction(approved:boolean){
 
