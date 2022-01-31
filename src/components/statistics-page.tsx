@@ -23,8 +23,8 @@ export default function StatisticsPage(){
 
     async function renderData(){
 
-        const expenses: Expense[] = await axios.get(`https://123c-184-90-227-213.ngrok.io/expenses`).then(response => {return response.data});
-        const employees: Employee[] = await axios.get(`https://123c-184-90-227-213.ngrok.io/employees/`).then(response => {return response.data});
+        const expenses: Expense[] = await axios.get(`https://dw-proj1-backend.azurewebsites.net/expenses`).then(response => {return response.data});
+        const employees: Employee[] = await axios.get(`https://dw-proj1-backend.azurewebsites.net/employees/`).then(response => {return response.data});
         employees.forEach(e=>e.password = "");
         const ids: string[] = expenses.map(e=> e.requestedBy).filter((value, index, self) => self.indexOf(value) === index) //unique IDs of everyone with 1 or more requests
 

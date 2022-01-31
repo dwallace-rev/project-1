@@ -18,7 +18,7 @@ export default function CreateExpensePage(){
         newExpense.amount = (amountInput.current.value * 100); //multiply by 100 because it's stored in cents
         newExpense.requestDate = Date.now();
 
-        const result = axios.post("https://123c-184-90-227-213.ngrok.io/expenses", newExpense)
+        const result = axios.post("https://dw-proj1-backend.azurewebsites.net/expenses", newExpense)
         alert("Reimbursement request successfully created: " + (await result).statusText);
         navigate("/expenses")
     }
