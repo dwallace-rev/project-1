@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
-import { Expense } from "../dtos/dtos";
+import { Employee, Expense } from "../dtos/dtos";
 
 
 
@@ -12,15 +12,18 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
     const commentInput = useRef(null);
     
     const {id, reason, requestedBy, requestDate, approved, amount, pending, comments} = props.expense;
-    const [username, setUsername] = useState();
+    const [username, setUsername] = useState("");
     const expense:Expense = {id, reason, requestDate, requestedBy, approved, amount, pending, comments}
+    const employees: Employee[] = JSON.parse(sessionStorage.getItem("employees"))
     
     const requestUser = (async () =>{
-        const username = await (await axios.get(`https://9c09-184-90-227-213.ngrok.io/employees/username/${requestedBy}`)).data
+        const username = employees.find(e=> e.id === requestedBy).username;
         setUsername(username);
     })
 
-    useEffect(()=>{requestUser()},)
+    useEffect(()=>{
+        requestUser()
+    },[])
 
     async function approvalAction(approved:boolean){
 
