@@ -44,6 +44,7 @@ th{
 .reasonField{
     text-align: center;
     padding-right: 5px;
+    background-color: rgba(255, 255, 255, .4);
 }
 
 .action-buttons-td{
@@ -77,6 +78,10 @@ th{
     margin: auto;
     padding: 20px;
     padding-top: 5px;
+}
+
+.expense-row{
+    background-color: rgba(255, 255, 255, .4);
 }
 
 #stat-table{
