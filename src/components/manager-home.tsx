@@ -22,8 +22,8 @@ export default function ManagerHome() {
     }, [])
 
     async function getAllData() {
-        const expenses: Expense[] = await axios.get(`https://9c09-184-90-227-213.ngrok.io/expenses/`).then(response => { return response.data });
-        const employees: Employee[] = await axios.get(`https://9c09-184-90-227-213.ngrok.io/employees/`).then(response => { return response.data });
+        const expenses: Expense[] = await axios.get(`https://123c-184-90-227-213.ngrok.io/expenses/`).then(response => { return response.data });
+        const employees: Employee[] = await axios.get(`https://123c-184-90-227-213.ngrok.io/employees/`).then(response => { return response.data });
 
         employees.forEach(e => e.password = ""); //hide passwords
 

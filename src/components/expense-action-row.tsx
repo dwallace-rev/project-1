@@ -41,7 +41,7 @@ export default function ExpenseActionRow(props:{expense:Expense, refresh:Functio
             expense.comments =[commentInput.current.value];
         }
 
-        const result = (await axios.put(`https://9c09-184-90-227-213.ngrok.io/expenses/${id}`, expense)).data
+        const result = (await axios.put(`https://123c-184-90-227-213.ngrok.io/expenses/${id}`, expense)).data
         console.log(`${await result}}`);
         refresh();
 
